@@ -1,0 +1,673 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="wheel_chairr">
+  <link name="base_footprint"/>
+  <joint name="base_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  </joint>
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.20 0.0 0.05"
+        rpy="0 0 0" />
+      <mass
+        value="23.2876055910119" />
+      <inertia
+        ixx="0.497829630771366"
+        ixy="0.000174220685524571"
+        ixz="0.0299787893996809"
+        iyy="0.359641482570925"
+        iyz="1.10533272734246E-06"
+        izz="0.503506403165052" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheel_chairr/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0.2 0 0.05"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="0.5 0.35 0.15" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Rear_Left">
+    <inertial>
+      <origin
+        xyz="-3.14911262526291E-07 -0.0308875981255107 -8.45376993685587E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.977810672153038" />
+      <inertia
+        ixx="0.00640788778449168"
+        ixy="-9.48040771975778E-11"
+        ixz="-3.76057262614863E-08"
+        iyy="0.0122222305959451"
+        iyz="-2.05383486424392E-09"
+        izz="0.00640792199994129" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheel_chairr/meshes/Rear_Left.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.152941176470588 0.152941176470588 0.152941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 -0.031 0"
+        rpy="1.5708 0 0" />
+      <geometry>
+        <cylinder radius="0.1579" length="0.062" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_R_Left"
+    type="continuous">
+    <origin
+      xyz="0 0.264 -0.145"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Rear_Left" />
+    <axis
+      xyz="0 1 0" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="Rear_Right">
+    <inertial>
+      <origin
+        xyz="-4.31467365799229E-07 0.0302665427097282 7.05254230376484E-07"
+        rpy="0 0 0" />
+      <mass
+        value="0.706142694876491" />
+      <inertia
+        ixx="0.00382122584390998"
+        ixy="2.42459799230315E-09"
+        ixz="8.9691456833991E-09"
+        iyy="0.00729630089719367"
+        iyz="-6.17654203528708E-11"
+        izz="0.00382080164198978" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheel_chairr/meshes/Rear_Right.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.96078431372549 0.96078431372549 0.964705882352941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0.031 0"
+        rpy="1.5708 0 0" />
+      <geometry>
+        <cylinder radius="0.1579" length="0.062" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_R_Right"
+    type="continuous">
+    <origin
+      xyz="-0.0021526 -0.264 -0.145"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Rear_Right" />
+    <axis
+      xyz="0 1 0" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="Front_Left">
+    <inertial>
+      <origin
+        xyz="1.95121696577871E-13 -0.00399984260872949 1.52350354554187E-13"
+        rpy="0 0 0" />
+      <mass
+        value="0.924478164394117" />
+      <inertia
+        ixx="0.0025012127274546"
+        ixy="-4.01495411734252E-15"
+        ixz="1.4794179535475E-15"
+        iyy="0.0047388538952352"
+        iyz="3.19972273532571E-15"
+        izz="0.00250121272745161" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheel_chairr/meshes/Front_Left.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 -0.004 0"
+        rpy="1.5708 0 0" />
+      <geometry>
+        <cylinder radius="0.09525" length="0.06" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_F_Left"
+    type="continuous">
+    <origin
+      xyz="0.41492 0.22 -0.2076"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Front_Left" />
+    <axis
+      xyz="0 1 0" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="Front_Right">
+    <inertial>
+      <origin
+        xyz="1.96342941904959E-13 0.00400015739127066 1.52322598978571E-13"
+        rpy="0 0 0" />
+      <mass
+        value="0.924478164394117" />
+      <inertia
+        ixx="0.0025012127274546"
+        ixy="-3.24671219084384E-15"
+        ixz="1.47991649001164E-15"
+        iyy="0.0047388538952352"
+        iyz="3.19934063079981E-15"
+        izz="0.00250121272745161" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheel_chairr/meshes/Front_Right.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0.004 0"
+        rpy="1.5708 0 0" />
+      <geometry>
+        <cylinder radius="0.09525" length="0.06" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Joint_F_Right"
+    type="continuous">
+    <origin
+      xyz="0.41492 -0.22 -0.2076"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Front_Right" />
+    <axis
+      xyz="0 1 0" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+  <link
+    name="LIDAR">
+    <inertial>
+      <origin
+        xyz="0.00321175077196584 -1.49072247233534E-05 -0.0214698842743145"
+        rpy="0 0 0" />
+      <mass
+        value="0.165382902287452" />
+      <inertia
+        ixx="7.90556780377893E-05"
+        ixy="4.26213170407541E-08"
+        ixz="-3.26179730195169E-06"
+        iyy="7.51891502128296E-05"
+        iyz="3.67928884430426E-08"
+        izz="0.000109756519233747" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheel_chairr/meshes/LIDAR.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheel_chairr/meshes/LIDAR.STL" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <gazebo reference="LIDAR">
+    <sensor name="lidar_sensor" type="gpu_lidar">
+      <pose>0 0 0 0 0 0</pose>
+      <update_rate>10</update_rate>
+      <topic>scan</topic>
+      <gz_frame_id>LIDAR</gz_frame_id>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>720</samples>
+            <resolution>1</resolution>
+            <min_angle>-3.14</min_angle>
+            <max_angle>3.14</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.1</min>
+          <max>10.0</max>
+          <resolution>0.01</resolution>
+        </range>
+      </ray>
+      <always_on>1</always_on>
+      <visualize>true</visualize>
+    </sensor>
+  </gazebo>
+
+  <joint
+    name="J_LIDAR"
+    type="fixed">
+    <origin
+      xyz="-0.20172 0.006 0.94907"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="LIDAR" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="U_1">
+    <inertial>
+      <origin
+        xyz="0.00240622452796485 -6.81022184841062E-05 0.000756079597984328"
+        rpy="0 0 0" />
+      <mass
+        value="0.00491798922299564" />
+      <inertia
+        ixx="9.37127696914535E-07"
+        ixy="1.56337259078209E-10"
+        ixz="8.90534472583303E-10"
+        iyy="1.7493994314187E-07"
+        iyz="-1.84861386447026E-11"
+        izz="8.83648195288428E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheel_chairr/meshes/U_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheel_chairr/meshes/U_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J_ULTRASOnic"
+    type="fixed">
+    <origin
+      xyz="0.4958 -0.17727 -0.017721"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="U_1" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="Camera">
+    <inertial>
+      <origin
+        xyz="-0.0133041727122377 0.000155208220977143 -9.2241584007868E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.0847808891751816" />
+      <inertia
+        ixx="0.000104020495363649"
+        ixy="-4.65776870771454E-09"
+        ixz="-8.9940402068928E-09"
+        iyy="9.72338911743723E-06"
+        iyz="-3.42451387228325E-12"
+        izz="0.000102564609485802" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheel_chairr/meshes/Camera.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheel_chairr/meshes/Camera.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J_Camera"
+    type="fixed">
+    <origin
+      xyz="0.49 -0.13815 0.0075"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Camera" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="U_2">
+    <inertial>
+      <origin
+        xyz="0.00240622452796485 -6.81022184839397E-05 0.000756079597984328"
+        rpy="0 0 0" />
+      <mass
+        value="0.00491798922299565" />
+      <inertia
+        ixx="9.37127696914536E-07"
+        ixy="1.5633725907823E-10"
+        ixz="8.90534472583297E-10"
+        iyy="1.7493994314187E-07"
+        iyz="-1.84861386446877E-11"
+        izz="8.83648195288428E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheel_chairr/meshes/U_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheel_chairr/meshes/U_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Fixed_US1"
+    type="fixed">
+    <origin
+      xyz="0.4958 0.17728 -0.017721"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="U_2" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="U_3">
+    <inertial>
+      <origin
+        xyz="-0.00240622452796364 6.81022184841895E-05 0.000756079597984289"
+        rpy="0 0 0" />
+      <mass
+        value="0.00491798922299561" />
+      <inertia
+        ixx="9.37127696914529E-07"
+        ixy="1.56337259078953E-10"
+        ixz="-8.90534472582008E-10"
+        iyy="1.74939943141868E-07"
+        iyz="1.84861386422582E-11"
+        izz="8.83648195288421E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheel_chairr/meshes/U_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheel_chairr/meshes/U_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Fixed_U3"
+    type="fixed">
+    <origin
+      xyz="-0.0808 0.16728 -0.010721"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="U_3" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="U_4">
+    <inertial>
+      <origin
+        xyz="-0.00240622452796369 6.8102218483912E-05 0.000756079597984289"
+        rpy="0 0 0" />
+      <mass
+        value="0.00491798922299562" />
+      <inertia
+        ixx="9.37127696914529E-07"
+        ixy="1.56337259078929E-10"
+        ixz="-8.90534472582008E-10"
+        iyy="1.74939943141868E-07"
+        iyz="1.84861386422516E-11"
+        izz="8.83648195288421E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheel_chairr/meshes/U_4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.627450980392157 0.627450980392157 0.627450980392157 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheel_chairr/meshes/U_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Fixed_US"
+    type="fixed">
+    <origin
+      xyz="-0.0807999999932945 -0.167275 -0.0107208684992432"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="U_4" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <!-- Gazebo Friction Settings -->
+  <gazebo reference="Rear_Left">
+    <mu1>1.5</mu1>
+    <mu2>1.5</mu2>
+  </gazebo>
+  <gazebo reference="Rear_Right">
+    <mu1>1.5</mu1>
+    <mu2>1.5</mu2>
+  </gazebo>
+  <gazebo reference="Front_Left">
+    <mu1>0.0</mu1>
+    <mu2>0.0</mu2>
+  </gazebo>
+  <gazebo reference="Front_Right">
+    <mu1>0.0</mu1>
+    <mu2>0.0</mu2>
+  </gazebo>
+
+  <!-- Gazebo plugins for Gazebo Sim (Ignition/Harmonic) -->
+  <gazebo>
+    <plugin
+      filename="gz-sim-diff-drive-system"
+      name="gz::sim::systems::DiffDrive">
+      <left_joint>Joint_R_Left</left_joint>
+      <right_joint>Joint_R_Right</right_joint>
+      <wheel_separation>0.528</wheel_separation>
+      <wheel_radius>0.1579</wheel_radius>
+      <odom_publish_frequency>30</odom_publish_frequency>
+      <topic>/cmd_vel</topic>
+      <odom_topic>/odom</odom_topic>
+      <tf_topic>/tf</tf_topic>
+      <frame_id>odom</frame_id>
+      <child_frame_id>base_footprint</child_frame_id>
+      <max_linear_acceleration>1.5</max_linear_acceleration>
+      <max_angular_acceleration>2.0</max_angular_acceleration>
+      <max_torque>20</max_torque>
+    </plugin>
+
+    <plugin
+      filename="gz-sim-joint-state-publisher-system"
+      name="gz::sim::systems::JointStatePublisher">
+      <topic>/joint_states</topic>
+      <joint_name>Joint_R_Left</joint_name>
+      <joint_name>Joint_R_Right</joint_name>
+      <joint_name>Joint_F_Left</joint_name>
+      <joint_name>Joint_F_Right</joint_name>
+    </plugin>
+  </gazebo>
+
+
+</robot>

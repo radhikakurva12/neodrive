@@ -1,0 +1,190 @@
+<?xml version="1.0" ?>
+<!-- Simple 3-room layout for Gazebo Sim (Harmonic) -->
+<sdf version="1.6">
+  <world name="wheelchair_rooms">
+
+    <!-- Gazebo Sim System Plugins -->
+    <plugin filename="gz-sim-physics-system"
+            name="gz::sim::systems::Physics">
+    </plugin>
+    <plugin filename="gz-sim-user-commands-system"
+            name="gz::sim::systems::UserCommands">
+    </plugin>
+    <plugin filename="gz-sim-scene-broadcaster-system"
+            name="gz::sim::systems::SceneBroadcaster">
+    </plugin>
+    <plugin filename="gz-sim-sensors-system"
+            name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+
+    <physics name="default_physics" type="ode" default="true">
+      <max_step_size>0.005</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+      <real_time_update_rate>200</real_time_update_rate>
+      <ode>
+        <solver>
+          <type>quick</type>
+          <iters>80</iters>
+          <sor>1.4</sor>
+        </solver>
+        <constraints>
+          <cfm>0.0</cfm>
+          <erp>0.15</erp>
+          <contact_max_correcting_vel>0.2</contact_max_correcting_vel>
+          <contact_surface_layer>0.0015</contact_surface_layer>
+        </constraints>
+      </ode>
+    </physics>
+
+    <!-- Sun (inline directional light instead of model://sun) -->
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <!-- Ground Plane (inline instead of model://ground_plane) -->
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Outer shell ~11 m x 9 m inner floor -->
+    <model name="wall_outer_n">
+      <static>true</static>
+      <pose>0 4.5 0.6 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>11 0.2 1.2</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>11 0.2 1.2</size></box></geometry>
+          <material><ambient>0.5 0.5 0.5 1</ambient><diffuse>0.5 0.5 0.5 1</diffuse></material></visual>
+      </link>
+    </model>
+    <model name="wall_outer_s">
+      <static>true</static>
+      <pose>0 -4.5 0.6 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>11 0.2 1.2</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>11 0.2 1.2</size></box></geometry>
+          <material><ambient>0.5 0.5 0.5 1</ambient><diffuse>0.5 0.5 0.5 1</diffuse></material></visual>
+      </link>
+    </model>
+    <model name="wall_outer_w">
+      <static>true</static>
+      <pose>-5.5 0 0.6 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.2 9 1.2</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.2 9 1.2</size></box></geometry>
+          <material><ambient>0.5 0.5 0.5 1</ambient><diffuse>0.5 0.5 0.5 1</diffuse></material></visual>
+      </link>
+    </model>
+    <model name="wall_outer_e">
+      <static>true</static>
+      <pose>5.5 0 0.6 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.2 9 1.2</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.2 9 1.2</size></box></geometry>
+          <material><ambient>0.5 0.5 0.5 1</ambient><diffuse>0.5 0.5 0.5 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <!-- Vertical partition at x = -1, doorway centered on origin (y gap +/-0.75) -->
+    <model name="wall_div_v_low">
+      <static>true</static>
+      <pose>-1 -2.625 0.6 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.15 3.75 1.2</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.15 3.75 1.2</size></box></geometry>
+          <material><ambient>0.9 0.9 0.9 1</ambient><diffuse>0.9 0.9 0.9 1</diffuse></material></visual>
+      </link>
+    </model>
+    <model name="wall_div_v_high">
+      <static>true</static>
+      <pose>-1 2.625 0.6 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.15 3.75 1.2</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.15 3.75 1.2</size></box></geometry>
+          <material><ambient>0.9 0.9 0.9 1</ambient><diffuse>0.9 0.9 0.9 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <!-- Horizontal partition at y = 2, door gap around x = 2 -->
+    <model name="wall_div_h_left">
+      <static>true</static>
+      <pose>0.2375 2 0.6 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>2.325 0.15 1.2</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>2.325 0.15 1.2</size></box></geometry>
+          <material><ambient>0.9 0.9 0.9 1</ambient><diffuse>0.9 0.9 0.9 1</diffuse></material></visual>
+      </link>
+    </model>
+    <model name="wall_div_h_right">
+      <static>true</static>
+      <pose>4.05 2 0.6 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>2.9 0.15 1.2</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>2.9 0.15 1.2</size></box></geometry>
+          <material><ambient>0.9 0.9 0.9 1</ambient><diffuse>0.9 0.9 0.9 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <!-- Obstacles inside rooms -->
+    <model name="obs_box_left">
+      <static>true</static>
+      <pose>-3.5 0 0.35 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.5 0.5 0.7</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.5 0.5 0.7</size></box></geometry>
+          <material><ambient>1.0 0.5 0.0 1</ambient><diffuse>1.0 0.5 0.0 1</diffuse></material></visual>
+      </link>
+    </model>
+    <model name="obs_box_br">
+      <static>true</static>
+      <pose>2.5 -2 0.35 0 0 0.3</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.65 0.2 0.7</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.65 0.2 0.7</size></box></geometry>
+          <material><ambient>0.0 0.0 1.0 1</ambient><diffuse>0.0 0.0 1.0 1</diffuse></material></visual>
+      </link>
+    </model>
+    <model name="obs_box_tr">
+      <static>true</static>
+      <pose>3.5 3.2 0.4 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.35 0.35 0.8</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.35 0.35 0.8</size></box></geometry>
+          <material><ambient>1.0 0.5 0.0 1</ambient><diffuse>1.0 0.5 0.0 1</diffuse></material></visual>
+      </link>
+    </model>
+  </world>
+</sdf>
