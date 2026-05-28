@@ -186,5 +186,69 @@
           <material><ambient>1.0 0.5 0.0 1</ambient><diffuse>1.0 0.5 0.0 1</diffuse></material></visual>
       </link>
     </model>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         LOW-HEIGHT ULTRASONIC TEST OBSTACLES
+         Height: 0.5 m – 0.6 m  |  Centre Z: 0.28 – 0.30 m
+         ► LIDAR  (at ~1.27 m) shoots OVER these → absent from static map
+         ► Ultrasonics (at ~0.30 m) hit them → marked live in costmap
+         Colour: RED  so they are visually distinct from tall obstacles
+    ═══════════════════════════════════════════════════════════════ -->
+
+    <!-- Left room — mid path, robot must steer around it -->
+    <model name="us_obs_left_1">
+      <static>true</static>
+      <pose>-3.5 -2.0 0.28 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.30 0.30 0.56</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.30 0.30 0.56</size></box></geometry>
+          <material><ambient>1.0 0.0 0.0 1</ambient><diffuse>1.0 0.0 0.0 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <!-- Left room — near wall, robot must avoid while passing -->
+    <model name="us_obs_left_2">
+      <static>true</static>
+      <pose>-2.5 2.5 0.25 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.25 0.25 0.50</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.25 0.25 0.50</size></box></geometry>
+          <material><ambient>1.0 0.0 0.0 1</ambient><diffuse>1.0 0.0 0.0 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <!-- Doorway approach area — robot approaching from centre room -->
+    <model name="us_obs_centre_door">
+      <static>true</static>
+      <pose>-0.5 -1.5 0.28 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.30 0.20 0.56</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.30 0.20 0.56</size></box></geometry>
+          <material><ambient>1.0 0.0 0.0 1</ambient><diffuse>1.0 0.0 0.0 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <!-- Bottom-right room — along navigation corridor -->
+    <model name="us_obs_br_1">
+      <static>true</static>
+      <pose>2.0 -3.0 0.28 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.30 0.30 0.56</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.30 0.30 0.56</size></box></geometry>
+          <material><ambient>1.0 0.0 0.0 1</ambient><diffuse>1.0 0.0 0.0 1</diffuse></material></visual>
+      </link>
+    </model>
+
+    <!-- Top-right room — robot must detect while navigating to goal -->
+    <model name="us_obs_tr_1">
+      <static>true</static>
+      <pose>4.0 3.5 0.28 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.25 0.40 0.56</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.25 0.40 0.56</size></box></geometry>
+          <material><ambient>1.0 0.0 0.0 1</ambient><diffuse>1.0 0.0 0.0 1</diffuse></material></visual>
+      </link>
+    </model>
+
   </world>
 </sdf>
