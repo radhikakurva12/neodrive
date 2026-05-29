@@ -394,7 +394,7 @@
     type="fixed">
     <origin
       xyz="0.4958 -0.17727 -0.017721"
-      rpy="0 0 0" />
+      rpy="0 0 -0.785398" />
     <parent
       link="base_link" />
     <child
@@ -505,7 +505,7 @@
     type="fixed">
     <origin
       xyz="0.4958 0.17728 -0.017721"
-      rpy="0 0 0" />
+      rpy="0 0 0.785398" />
     <parent
       link="base_link" />
     <child
@@ -558,7 +558,7 @@
     type="fixed">
     <origin
       xyz="-0.0808 0.16728 -0.010721"
-      rpy="0 0 0" />
+      rpy="0 0 1.570796" />
     <parent
       link="base_link" />
     <child
@@ -611,7 +611,7 @@
     type="fixed">
     <origin
       xyz="-0.0807999999932945 -0.167275 -0.0107208684992432"
-      rpy="0 0 0" />
+      rpy="0 0 -1.570796" />
     <parent
       link="base_link" />
     <child
@@ -621,6 +621,110 @@
   </joint>
 
   <!-- Gazebo Friction Settings -->
+  <gazebo reference="U_1">
+    <sensor name="ultrasonic_front_right" type="gpu_ray">
+      <pose>0 0 0 0 0 0</pose>
+      <update_rate>10</update_rate>
+      <visualize>true</visualize>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>50</samples>
+            <resolution>1</resolution>
+            <min_angle>-0.13</min_angle>
+            <max_angle>0.13</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.05</min>
+          <max>2.0</max>
+          <resolution>0.01</resolution>
+        </range>
+      </ray>
+      <always_on>true</always_on>
+      <topic>ultrasonic/front_right</topic>
+      <gz_frame_id>U_1</gz_frame_id>
+    </sensor>
+  </gazebo>
+
+  <gazebo reference="U_2">
+    <sensor name="ultrasonic_front_left" type="gpu_ray">
+      <pose>0 0 0 0 0 0</pose>
+      <update_rate>10</update_rate>
+      <visualize>true</visualize>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>50</samples>
+            <resolution>1</resolution>
+            <min_angle>-0.13</min_angle>
+            <max_angle>0.13</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.05</min>
+          <max>2.0</max>
+          <resolution>0.01</resolution>
+        </range>
+      </ray>
+      <always_on>true</always_on>
+      <topic>ultrasonic/front_left</topic>
+      <gz_frame_id>U_2</gz_frame_id>
+    </sensor>
+  </gazebo>
+
+  <gazebo reference="U_3">
+    <sensor name="ultrasonic_rear_left" type="gpu_ray">
+      <pose>0 0 0 0 0 0</pose>
+      <update_rate>10</update_rate>
+      <visualize>true</visualize>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>50</samples>
+            <resolution>1</resolution>
+            <min_angle>-0.13</min_angle>
+            <max_angle>0.13</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.05</min>
+          <max>2.0</max>
+          <resolution>0.01</resolution>
+        </range>
+      </ray>
+      <always_on>true</always_on>
+      <topic>ultrasonic/rear_left</topic>
+      <gz_frame_id>U_3</gz_frame_id>
+    </sensor>
+  </gazebo>
+
+  <gazebo reference="U_4">
+    <sensor name="ultrasonic_rear_right" type="gpu_ray">
+      <pose>0 0 0 0 0 0</pose>
+      <update_rate>10</update_rate>
+      <visualize>true</visualize>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>50</samples>
+            <resolution>1</resolution>
+            <min_angle>-0.13</min_angle>
+            <max_angle>0.13</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.05</min>
+          <max>2.0</max>
+          <resolution>0.01</resolution>
+        </range>
+      </ray>
+      <always_on>true</always_on>
+      <topic>ultrasonic/rear_right</topic>
+      <gz_frame_id>U_4</gz_frame_id>
+    </sensor>
+  </gazebo>
+
   <gazebo reference="Rear_Left">
     <mu1>1.5</mu1>
     <mu2>1.5</mu2>
@@ -653,6 +757,7 @@
       <tf_topic>/tf</tf_topic>
       <frame_id>odom</frame_id>
       <child_frame_id>base_footprint</child_frame_id>
+      <publish_odom_tf>true</publish_odom_tf>
       <max_linear_acceleration>1.5</max_linear_acceleration>
       <max_angular_acceleration>2.0</max_angular_acceleration>
       <max_torque>20</max_torque>
