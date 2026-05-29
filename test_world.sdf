@@ -198,7 +198,7 @@
     <!-- Left room — mid path, robot must steer around it -->
     <model name="us_obs_left_1">
       <static>true</static>
-      <pose>-3.5 -2.0 0.05 0 0 0</pose>
+      <pose>-3.5 -2.0 0.30 0 0 0</pose>
       <link name="link">
         <collision name="c"><geometry><box><size>0.30 0.30 0.10</size></box></geometry></collision>
         <visual name="v"><geometry><box><size>0.30 0.30 0.10</size></box></geometry>
@@ -209,7 +209,7 @@
     <!-- Left room — near wall, robot must avoid while passing -->
     <model name="us_obs_left_2">
       <static>true</static>
-      <pose>-2.5 2.5 0.05 0 0 0</pose>
+      <pose>-2.5 2.5 0.30 0 0 0</pose>
       <link name="link">
         <collision name="c"><geometry><box><size>0.25 0.25 0.10</size></box></geometry></collision>
         <visual name="v"><geometry><box><size>0.25 0.25 0.10</size></box></geometry>
@@ -220,7 +220,7 @@
     <!-- Doorway approach area — robot approaching from centre room -->
     <model name="us_obs_centre_door">
       <static>true</static>
-      <pose>-0.5 -1.5 0.05 0 0 0</pose>
+      <pose>-0.5 -1.5 0.30 0 0 0</pose>
       <link name="link">
         <collision name="c"><geometry><box><size>0.30 0.20 0.10</size></box></geometry></collision>
         <visual name="v"><geometry><box><size>0.30 0.20 0.10</size></box></geometry>
@@ -231,7 +231,7 @@
     <!-- Bottom-right room — along navigation corridor -->
     <model name="us_obs_br_1">
       <static>true</static>
-      <pose>2.0 -3.0 0.05 0 0 0</pose>
+      <pose>2.0 -3.0 0.30 0 0 0</pose>
       <link name="link">
         <collision name="c"><geometry><box><size>0.30 0.30 0.10</size></box></geometry></collision>
         <visual name="v"><geometry><box><size>0.30 0.30 0.10</size></box></geometry>
@@ -242,7 +242,7 @@
     <!-- Top-right room — robot must detect while navigating to goal -->
     <model name="us_obs_tr_1">
       <static>true</static>
-      <pose>4.0 3.5 0.05 0 0 0</pose>
+      <pose>4.0 3.5 0.30 0 0 0</pose>
       <link name="link">
         <collision name="c"><geometry><box><size>0.25 0.40 0.10</size></box></geometry></collision>
         <visual name="v"><geometry><box><size>0.25 0.40 0.10</size></box></geometry>
